@@ -1,0 +1,32 @@
+/*line below heading - done
+slightly rounded corners - done
+spaced 2em on either side and centered - done
+right aligned counter
+padded text inside text area
+*/
+.new-tweet {
+  border-radius: 15px;
+  background: #eee;
+  padding: 10px;
+  margin: 0px 2em;
+}
+
+.container h2:first-child {
+  width: 100%;
+  border-bottom:1px solid #000;
+  padding-bottom:1px;
+  margin: 0 auto;
+}
+
+.new-tweet textarea {
+  width: 100%;
+  padding: 10px;
+}
+
+.new-tweet form {
+  padding-top: 20px;
+}
+
+.counter {
+  float: right;
+}
