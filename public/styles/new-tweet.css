@@ -27,6 +27,10 @@ padded text inside text area
   padding-top: 20px;
 }
 
-.counter {
+.new-tweet .counter {
   float: right;
+}
+
+.new-tweet .counterred{
+  color: red;
 }
