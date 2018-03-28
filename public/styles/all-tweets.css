@@ -1,0 +1,58 @@
+.all-tweets article{
+  border-style: solid;
+  border-color: #eee;
+  border-width: 1px;
+  border-radius: 15px;
+  margin: 1em 2em;
+}
+
+.all-tweets header{
+  height: 100px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  padding: 10px;
+  background-color: #eee;
+  text-align: center;
+}
+
+.all-tweets img {
+  display: inline-block;
+  float: left;
+  border-radius: 15px;
+  background-color: green;
+  width: 80px;
+  height: 80px;
+}
+
+.all-tweets p.name{
+  display: inline-block;
+  padding-right: 200px;
+}
+
+.all-tweets p.user{
+  display: inline-block;
+  float: right;
+}
+
+.all-tweets div{
+  height: 100px;
+  padding: 10px;
+  border-bottom: solid #eee;
+  border-width: 1px;
+}
+
+.items{
+  color: #93ba84;
+  display: none;
+}
+
+footer:hover .items{
+  height: 70px;
+  text-align: center;
+  display: inline-block;
+  float: right;
+}
+
+.all-tweets p.time{
+  display: inline-block;
+}
