@@ -1,9 +1,4 @@
-/*line below heading - done
-slightly rounded corners - done
-spaced 2em on either side and centered - done
-right aligned counter
-padded text inside text area
-*/
+/*css for the box creating a new tweet*/
 .new-tweet {
   border-radius: 15px;
   background: #eee;
@@ -14,8 +9,8 @@ padded text inside text area
 
 .container h2:first-child {
   width: 100%;
-  border-bottom:1px solid #000;
-  padding-bottom:1px;
+  border-bottom: 1px solid #000;
+  padding-bottom: 1px;
   margin: 0 auto;
 }
 

@@ -1,8 +1,9 @@
 $(document).ready(function () {
-  /*
+ /*
  * Client-side JS logic goes here
  * jQuery is already loaded
  */
+ //create the DOM of a tweet element
   function createTweetElement(tweet){
     let $tweet =
     `<article>
@@ -25,18 +26,24 @@ $(document).ready(function () {
     return $tweet;
   }
 
+//loops through tweets
+//calls createTweetElement for each tweet
+//takes return value and appends it to the tweets container
   function renderTweets(tweets) {
-    // loops through tweets
-    // calls createTweetElement for each tweet
-    // takes return value and appends it to the tweets container
     tweets.forEach(function(item){
       $('.all-tweets').prepend(createTweetElement(item));
     });
   }
 
-  //event listener for tweet button sending data via ajax
+  function loadTweets(){
+    $.getJSON('http://localhost:8080/tweets', renderTweets);
+  };
+
+  loadTweets();
+
+//event listener for tweet button sending data via ajax post
   $('input').click(function() {
-    //reset the form and don't navigate away from the page
+    //input by the user can not have 0 or more than 140 chars
     if ($('#input')[0].value.length === 0){
       $.flash('Please enter text!');
     } else if ($('#input')[0].value.length > 140){
@@ -47,41 +54,38 @@ $(document).ready(function () {
         method: 'POST',
         data: $('.new-tweet textarea').serialize(),
         success: function (data) {
-          //load the tweet that has just been sent
+          //load the tweet that has just been sent by the user
           loadTweets();
         }
       })
+      //reset the form
       $('.new-tweet form')[0].reset();
     }
+    //don't navigate away from the page
     event.preventDefault();
   });
 
-  //event listener for compose button toggeling the new tweet section
+//event listener for compose button toggeling the new tweet section
   $('.button').click(function() {
-    console.log("hello");
     $('.new-tweet').slideToggle("slow", function() {
       $('#input').focus();
     });
   });
-
-  function loadTweets(){
-    $.getJSON('http://localhost:8000/tweets', renderTweets);
-  };
-
-  function escape(str) {
-    let div = document.createElement('div');
-    div.appendChild(document.createTextNode(str));
-    return div.innerHTML;
-  }
-
-  function calculateDays(timestamp){
-    let days = Math.floor((Date.now() - timestamp) / 86400000);
-
-    if (days === 1) {
-      return `${days} day ago`;
-    } else {
-      return `${days} days ago`;
-    }
-  }
-  loadTweets();
 })
+
+//prevent cross-site scripting
+function escape(str) {
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
+//calculate the days since submission of the tweet
+function calculateDays(timestamp){
+  let days = Math.floor((Date.now() - timestamp) / 86400000);
+  if (days === 1) {
+    return `${days} day ago`;
+  } else {
+    return `${days} days ago`;
+  }
+}
