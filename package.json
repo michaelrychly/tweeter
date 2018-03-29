@@ -11,9 +11,13 @@
   "author": "Lighthouse Labs",
   "license": "ISC",
   "dependencies": {
+    "angular2-flash-messages": "^2.0.5",
     "body-parser": "^1.15.2",
     "chance": "^1.0.2",
     "express": "^4.13.4",
+    "express-session": "^1.15.6",
+    "flash-message": "^2.0.1",
+    "flash-messages": "0.0.4",
     "md5": "^2.1.0"
   },
   "devDependencies": {

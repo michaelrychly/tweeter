@@ -11,7 +11,7 @@ $(document).ready(function () {
         <p class='name'>${tweet.user.name}</p>
         <p class='user'>${tweet.user.handle}</p>
       </header>
-      <div>${tweet.content.text}</div>
+      <div>${escape(tweet.content.text)}</div>
       <footer>
         <p class='time'>${tweet.created_at}</p>
         <div class='items'>
@@ -38,34 +38,37 @@ $(document).ready(function () {
   $(function() {
     var $button = $('input');
     $button.on('click', function (event) {
-      $.ajax({
-        url: '/tweets',
-        method: 'POST',
-        data: $('textarea').serialize(),
-        success: function (data) {
-          console.log('Success: ', data);
-        }
-      });
-      //don't navigate away from the page
+      //reset the form and don't navigate away from the page
+      if ($('#input')[0].value.length === 0){
+        $.flash('Please enter text!');
+      } else if ($('#input')[0].value.length > 140){
+        $.flash('Your message has more than 140 characters!');
+      } else {
+        $.ajax({
+          url: '/tweets',
+          method: 'POST',
+          data: $('.new-tweet textarea').serialize(),
+          success: function (data) {
+          console.log($('.new-tweet textarea'));
+            //console.log('Success: ', data);
+            //load the tweet that has just been sent
+            loadTweets();
+          }
+        })
+        $('.new-tweet form')[0].reset();
+      }
       event.preventDefault();
     });
   });
 
   function loadTweets(){
-    $.getJSON('http://localhost:8000/tweets', function (data) {
-        renderTweets(data);});
-    //$.ajax({
-    //  dataType: 'json',
-    //  url: 'http://localhost:8080/tweets',
-    //  method: 'GET',
-    //  data: data,
-    //  success: function (data) {
-    //    console.log("okay get");
-    //    //console.log('Success: ', data);
-    //    renderTweets(data);
-    //  }
-    //});
+    $.getJSON('http://localhost:8000/tweets', renderTweets);
   };
 
+  function escape(str) {
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
   loadTweets();
 })
