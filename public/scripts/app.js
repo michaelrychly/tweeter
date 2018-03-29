@@ -57,7 +57,8 @@ $(document).ready(function () {
   });
 
   //event listener for compose button toggeling the new tweet section
-  $('#compose').click(function() {
+  $('.button').click(function() {
+    console.log("hello");
     $('.new-tweet').slideToggle("slow", function() {
       $('#input').focus();
     });
