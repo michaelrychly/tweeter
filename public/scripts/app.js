@@ -13,14 +13,14 @@ $(document).ready(function () {
       </header>
       <div>${escape(tweet.content.text)}</div>
       <footer>
-        <p class='time'>${tweet.created_at}</p>
+        <p class='time'>${calculateDays(tweet.created_at)}</p>
         <div class='items'>
           <i class="fas fa-flag"></i>
           <i class="fas fa-retweet"></i>
           <i class="fas fa-heart"></i>
         </div>
       </footer>
-     </article>'`;
+     </article>`;
 
     return $tweet;
   }
@@ -66,9 +66,19 @@ $(document).ready(function () {
   };
 
   function escape(str) {
-    var div = document.createElement('div');
+    let div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
+  }
+
+  function calculateDays(timestamp){
+    let days = Math.floor((Date.now() - timestamp) / 86400000);
+
+    if (days === 1) {
+      return `${days} day ago`;
+    } else {
+      return `${days} days ago`;
+    }
   }
   loadTweets();
 })
