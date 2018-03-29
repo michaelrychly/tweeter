@@ -35,29 +35,31 @@ $(document).ready(function () {
   }
 
   //event listener for tweet button sending data via ajax
-  $(function() {
-    var $button = $('input');
-    $button.on('click', function (event) {
-      //reset the form and don't navigate away from the page
-      if ($('#input')[0].value.length === 0){
-        $.flash('Please enter text!');
-      } else if ($('#input')[0].value.length > 140){
-        $.flash('Your message has more than 140 characters!');
-      } else {
-        $.ajax({
-          url: '/tweets',
-          method: 'POST',
-          data: $('.new-tweet textarea').serialize(),
-          success: function (data) {
-          console.log($('.new-tweet textarea'));
-            //console.log('Success: ', data);
-            //load the tweet that has just been sent
-            loadTweets();
-          }
-        })
-        $('.new-tweet form')[0].reset();
-      }
-      event.preventDefault();
+  $('input').click(function() {
+    //reset the form and don't navigate away from the page
+    if ($('#input')[0].value.length === 0){
+      $.flash('Please enter text!');
+    } else if ($('#input')[0].value.length > 140){
+      $.flash('Your message has more than 140 characters!');
+    } else {
+      $.ajax({
+        url: '/tweets',
+        method: 'POST',
+        data: $('.new-tweet textarea').serialize(),
+        success: function (data) {
+          //load the tweet that has just been sent
+          loadTweets();
+        }
+      })
+      $('.new-tweet form')[0].reset();
+    }
+    event.preventDefault();
+  });
+
+  //event listener for compose button toggeling the new tweet section
+  $('#compose').click(function() {
+    $('.new-tweet').slideToggle("slow", function() {
+      $('#input').focus();
     });
   });
 

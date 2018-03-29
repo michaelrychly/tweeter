@@ -9,6 +9,7 @@ padded text inside text area
   background: #eee;
   padding: 10px;
   margin: 5px 2em;
+  display: none;
 }
 
 .container h2:first-child {
