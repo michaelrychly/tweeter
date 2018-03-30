@@ -17,50 +17,58 @@
   border-top-right-radius: 15px;
   padding: 10px;
   background-color: #eee;
-  text-align: center;
+  color: #6e7075;
+}
+
+.all-tweets article:hover header {
+  color: black;
 }
 
 .all-tweets img {
-  display: inline-block;
   float: left;
   border-radius: 15px;
-  background-color: green;
   width: 80px;
   height: 80px;
 }
 
 .all-tweets p.name {
-  display: inline-block;
   float: left;
   padding-left: 10px;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: bold;
+  margin-top: 5px;
 }
 
-.all-tweets p.user {
-  display: inline-block;
+.all-tweets p.handle {
   float: right;
+  margin-top: 5px;
 }
 
-.all-tweets div {
+.all-tweets footer {
+  padding: 10px;
+  height : 60px;
+}
+
+.all-tweets p.time {
+  display: inline-block;
+  margin-top: 0px;
+}
+
+.all-tweets .tweet {
   height: 100px;
   padding: 10px;
   border-bottom: solid #eee;
   border-width: 1px;
+  word-wrap: break-word;
 }
 
 .items {
   color: #93ba84;
   display: none;
+  height: 20px;
 }
 
 .all-tweets article:hover .items {
-  text-align: center;
   display: inline-block;
   float: right;
-}
-
-.all-tweets p.time {
-  display: inline-block;
-  padding-left: 10px;
 }

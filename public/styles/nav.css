@@ -22,7 +22,7 @@
   line-height: 60px;
 }
 
-.button {
+#nav-bar .button {
   float: right;
   border-style: solid;
   border-color: black;
@@ -35,7 +35,7 @@
   padding: 0px 10px;
 }
 
-.button:hover {
+#nav-bar .button:hover {
   background-color: white;
   color: black;
 }

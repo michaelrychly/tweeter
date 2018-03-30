@@ -10,9 +10,9 @@ $(document).ready(function () {
       <header>
         <img src='${tweet.user.avatars.small}'>
         <p class='name'>${tweet.user.name}</p>
-        <p class='user'>${tweet.user.handle}</p>
+        <p class='handle'>${tweet.user.handle}</p>
       </header>
-      <div>${escape(tweet.content.text)}</div>
+      <div class='tweet'>${escape(tweet.content.text)}</div>
       <footer>
         <p class='time'>${calculateDays(tweet.created_at)}</p>
         <div class='items'>
@@ -58,8 +58,9 @@ $(document).ready(function () {
           loadTweets();
         }
       })
-      //reset the form
+      //reset the form and counter
       $('.new-tweet form')[0].reset();
+      $(".new-tweet").find(".counter").text(140);
     }
     //don't navigate away from the page
     event.preventDefault();

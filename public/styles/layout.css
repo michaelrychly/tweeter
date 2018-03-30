@@ -21,7 +21,7 @@ body {
   font-family: 'Roboto Condensed', sans-serif;
 }
 
-main {
+.container {
   width: 450px;
   background-color: white;
   margin: 0 auto;
