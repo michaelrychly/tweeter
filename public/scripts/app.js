@@ -37,7 +37,7 @@ $(document).ready(function () {
 
   function loadTweets(){
     //$.getJSON('http://localhost:8080/tweets', renderTweets);
-    $.getJSON('https://dry-ocean-42132.herokuapp.com/tweets', renderTweets);
+    $.getJSON('https://dry-ocean-42132.herokuapp.com/', renderTweets);
   };
 
   loadTweets();
