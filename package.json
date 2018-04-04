@@ -24,5 +24,8 @@
     "nodemon": "^1.9.2",
     "chai": "*",
     "mocha": "*"
+  },
+  "engines": {
+    "node": "v8.11.1"
   }
 }
