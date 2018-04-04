@@ -17,8 +17,10 @@
     "express-session": "^1.15.6",
     "flash-message": "^2.0.1",
     "flash-messages": "0.0.4",
+    "foobar": "^1.1.0",
     "md5": "^2.1.0",
-    "mongodb": "^2.2.35"
+    "mongodb": "^2.2.35",
+    "nodemon": "^1.9.2"
   },
   "devDependencies": {
     "nodemon": "^1.9.2",
