@@ -29,5 +29,6 @@ Tweeter is a simple, single-page Twitter clone.
 
 
 https://dry-ocean-42132.herokuapp.com/
+https://safe-dusk-35526.herokuapp.com/
 
 
